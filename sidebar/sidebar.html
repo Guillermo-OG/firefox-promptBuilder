@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <title>Prompt Builder</title>
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="tabs-container">
+        <button class="tab-button active" id="prompts-tab">Prompts</button>
+        <button class="tab-button" id="contexts-tab">Contexts</button>
+      </div>
+
+      <button id="edit-mode-button">
+        <img src="/icons/123-pencil.png" alt="Edit" />
+      </button>
+      <div id="prompts-content" class="tab-content active">
+        <button id="add-text-block">Add Text Block</button>
+        <div id="breadcrumb-container"></div>
+        <div id="folders-container">
+          <div id="folders-list"></div>
+        </div>
+        <div id="text-blocks-container">
+          <div id="text-blocks-list"></div>
+        </div>
+      </div>
+      <div id="contexts-content" class="tab-content">
+        <!-- Será necesario adicionar el javascript para funcionamientos -->
+        <div id="contexts-content" class="tab-content">
+          <button id="add-context-block">Add Context</button>
+          <div id="text-contexts-container">
+            <div id="text-contexts-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal-container" class="hidden">
+      <div id="modal">
+        <h3>Add Text Block</h3>
+        <input type="hidden" id="text-block-hiddenId" />
+        <label for="folder-dropdown">Select Folder</label>
+        <select id="folder-dropdown">
+          <option value="0">(root)</option>
+        </select>
+        <button id="create-folder">+</button>
+        <label for="title-input">Title</label>
+        <input type="text" id="title-input" />
+        <label for="text-area">Text</label>
+        <textarea id="text-area"></textarea>
+        <button id="save-text-block">Save</button>
+        <button id="cancel-text-block">Cancel</button>
+      </div>
+    </div>
+    <div id="context-modal-container" class="hidden">
+      <div id="context-modal">
+        <h3>Add Context</h3>
+        <input type="hidden" id="context-hiddenId" />
+        <label for="context-title-input">Title</label>
+        <input type="text" id="context-title-input" />
+        <label for="about-you-area">About You</label>
+        <textarea id="about-you-area"></textarea>
+        <label for="how-to-respond-area">How to Respond</label>
+        <textarea id="how-to-respond-area"></textarea>
+        <button id="save-context-button">Save</button>
+        <button id="cancel-context-button">Cancel</button>
+      </div>
+    </div>
+
+    <script src="/assets/js/sidebar/sidebar.js" type="module"></script>
+  </body>
+</html>

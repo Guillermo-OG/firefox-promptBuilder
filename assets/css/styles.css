@@ -1,0 +1,232 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  width: 300px;
+  background-color: #222;
+  color: #f0f0f0;
+}
+
+button {
+  cursor: pointer;
+  background-color: #444;
+  color: #f0f0f0;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.hidden {
+  display: none;
+}
+
+#folders-container {
+  margin-top: 10px;
+}
+
+#modal-container,
+#context-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal,
+#context-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  padding: 20px;
+  border-radius: 4px;
+  width: 80%;
+  max-width: 400px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+#folder-dropdown {
+  display: inline-block;
+  width: calc(100% - 30px);
+  background-color: #444;
+  color: #f0f0f0;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+#create-folder {
+  width: 25px;
+  height: 25px;
+  font-size: 18px;
+  padding: 0;
+  line-height: 20px;
+}
+
+#title-input,
+#context-title-input,
+#text-area,
+#about-you-area,
+#how-to-respond-area {
+  display: block;
+  width: 100%;
+  background-color: #444;
+  color: #f0f0f0;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  margin-top: 5px;
+  resize: vertical;
+}
+
+#title-input::placeholder,
+#context-title-input::placeholder,
+#context-title-input::placeholder,
+#about-you-area::placeholder,
+#how-to-respond-area::placeholder,
+#text-area::placeholder {
+  color: #999;
+}
+
+.edit-folder,
+.delete-folder,
+.edit-text-block,
+.delete-text-block {
+  display: none;
+}
+
+.folder-button {
+  background-color: #4caf50;
+  color: #f0f0f0;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+.text-block-button {
+  background-color: #2196f3;
+  color: #f0f0f0;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+.folder-button .edit-folder,
+.folder-button .delete-folder {
+  display: none;
+}
+
+.folder-button .edit-folder {
+  background-color: #2196f3;
+}
+
+.folder-button .delete-folder {
+  background-color: #f44336;
+}
+
+#edit-mode-button {
+  float: right;
+}
+
+#edit-mode-button img {
+  max-width: 10px;
+  cursor: pointer;
+}
+
+.edit-mode .text-block-button .edit-text-block,
+.edit-mode .text-block-button .delete-text-block,
+.edit-mode .text-context-button .edit-text-block,
+.edit-mode .text-context-button .delete-text-block,
+.edit-mode .folder-button .edit-folder,
+.edit-mode .folder-button .delete-folder {
+  display: inline;
+}
+
+.text-block-button .edit-text-block,
+.text-context-button .edit-text-block {
+  background-color: #4caf50;
+}
+
+.text-block-button .delete-text-block,
+.text-context-button .delete-text-block {
+  background-color: #f44336;
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.breadcrumb-item {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.breadcrumb-item:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 4px;
+}
+
+.edit-mode-button-active {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+#tabs-container {
+  display: flex;
+}
+
+.tab-button {
+  border: none;
+  padding: 10px 20px;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: #f0f0f0;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-button.active {
+  border-bottom: 2px solid #f0f0f0;
+}
+.text-context-button {
+  background-color: #ffc107; /* Cambiar al color deseado */
+  color: #f0f0f0;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-right: 3px;
+}
