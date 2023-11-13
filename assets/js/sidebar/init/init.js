@@ -167,6 +167,7 @@ function manageTabs() {
 
 export function disableEditMode() {
   // Desactivar el modo de edición
+  contextID.value = "";
   isEditMode = false;
   document.body.classList.remove("edit-mode");
   editModeButton.classList.add("edit-mode-button-active");

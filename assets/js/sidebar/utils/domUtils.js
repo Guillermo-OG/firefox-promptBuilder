@@ -15,7 +15,6 @@ export function insertText(text) {
 
 export function insertContext(context) {
   // Enviar un mensaje al contenido del script con el texto a insertar
-  console.log("domContextChegando", context);
   browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
     browser.tabs.sendMessage(tabs[0].id, {
       action: "loadContext",

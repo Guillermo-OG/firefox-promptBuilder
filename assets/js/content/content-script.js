@@ -38,29 +38,24 @@ function insertTextAtCursor(text) {
 }
 
 function insertContextToWeb(context) {
-  // Busca el elemento con el ID 'radix-:rd:'
-  const radixElement = document.querySelector('div[id^="radix-:"]');
+  // Obtiene todos los elementos div con id que comienza con 'radix-:'
+  const radixElements = document.querySelectorAll('div[id^="radix-:"]');
 
-  if (!radixElement) {
-    console.log("Element with id starting with 'radix-:' not found");
-    return;
+  for (const radixElement of radixElements) {
+    // Encuentra todos los textarea dentro del elemento actual
+    const textareas = radixElement.querySelectorAll("textarea");
+
+    if (textareas.length >= 2) {
+      // Si se encuentran al menos dos textareas, simula la escritura
+      simulateTyping(textareas[0], context.userContext);
+      simulateTyping(textareas[1], context.howToAnswer);
+
+      return; // Sale de la función después de encontrar el primer div adecuado
+    }
   }
 
-  // Encuentra todos los textarea dentro del elemento
-  const textareas = radixElement.querySelectorAll("textarea");
-
-  console.log(textareas);
-
-  if (textareas.length < 2) {
-    console.log("Less than two textareas found");
-    return;
-  }
-
-  // Simular escritura en el primer textarea
-  simulateTyping(textareas[0], context.userContext);
-
-  // Simular escritura en el segundo textarea
-  simulateTyping(textareas[1], context.howToAnswer);
+  // Registro si no se encuentra un div adecuado con dos textareas
+  console.log("No se encontró un div adecuado con dos textareas");
 }
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
