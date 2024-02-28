@@ -20,21 +20,25 @@ function simulateTyping(element, text) {
 
 function insertTextAtCursor(text) {
   const activeElement = document.activeElement;
-  const start = activeElement.selectionStart;
-  const end = activeElement.selectionEnd;
-  const value = activeElement.value;
 
-  if (value.length > 0 && start === end) {
-    text = " " + text;
+  if (activeElement.tagName.toLowerCase() === 'textarea' || activeElement.tagName.toLowerCase() === 'input') {
+    const start = activeElement.selectionStart;
+    const end = activeElement.selectionEnd;
+    const value = activeElement.value;
+
+    if (value.length > 0 && start === end) {
+      text = " " + text;
+    }
+
+    // Simula la escritura en el elemento activo
+    simulateTyping(activeElement, value.slice(0, start) + text + value.slice(end));
+
+    activeElement.selectionStart = start + text.length;
+    activeElement.selectionEnd = start + text.length;
+    activeElement.focus();
+  } else {
+    console.log("El elemento activo no es un campo de texto.");
   }
-
-  activeElement.value = value.slice(0, start) + text + value.slice(end);
-  activeElement.selectionStart = start + text.length;
-  activeElement.selectionEnd = start + text.length;
-  activeElement.focus();
-
-  const event = new KeyboardEvent("input", { data: text });
-  activeElement.dispatchEvent(event);
 }
 
 function insertContextToWeb(context) {
